@@ -1,3 +1,3 @@
 # Java-Encryption-Algorithm
 
-256 bit Encryption
+256 bit encryption
