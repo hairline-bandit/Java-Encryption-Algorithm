@@ -10,9 +10,10 @@ Key:
     Cycle Columns
 Message:
     Nibbles xor + 1st nibble
+Then Combine.
 */
 public class Encryptor {
-    static final int rounds = 20;
+    static int rounds = 20;
     static String xor(String byt, String byt2) {
         String out = "";
         for (int i = 0; i < byt.length(); i++) {
@@ -219,7 +220,13 @@ public class Encryptor {
             message_array[i] = int_to_bin(message.charAt(i));
         }
         matrix_message = matrixer(message_array);
-        
+        System.out.print("Enter the number of rounds or 0 for the default of 20: ");
+        int tmpr = scan.nextInt();
+        if (tmpr < 0) {
+            System.exit(1);
+        } else if (tmpr != 0) {
+            rounds = tmpr;
+        }
         // Combine key and message
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
@@ -274,7 +281,13 @@ public class Encryptor {
         String message = scan.nextLine();
         System.out.print("Enter the key: ");
         String key = scan.nextLine();
-
+        System.out.print("Enter the number of rounds or 0 for the default of 20: ");
+        int tmpr = scan.nextInt();
+        if (tmpr < 0) {
+            System.exit(1);
+        } else if (tmpr != 0) {
+            rounds = tmpr;
+        }
         String[] arrayMsg = new String[64];
         String[] arrayKey = new String[64];
         String[] temp1 = new String[64];
